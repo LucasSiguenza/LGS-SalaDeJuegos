@@ -1,0 +1,44 @@
+<head>
+	<title>Slide Navbar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
+  <!-- REGISTRO -->
+			<div class="signup">
+				<form [formGroup]="registroForm" (ngSubmit)="ingreso()">
+					
+					<label for="chk" aria-hidden="true">Registro</label>
+					<input type="text" formControlName="usuario" placeholder="Nombre de usuario" />
+					<div *ngIf="registroForm.get('usuario')?.invalid && registroForm.get('usuario')?.touched">
+						Nombre de usuario requerido.
+					</div>
+
+					<input type="email" formControlName="email" placeholder="Correo electrónico."/>
+					<div *ngIf="registroForm.get('email')?.errors?.['email'] && registroForm.get('email')?.touched">
+						Correo inválido.
+					</div>
+
+					<input type="password" formControlName="contraseña" placeholder="Contraseña"/>
+					<div *ngIf="registroForm.get('contraseña')?.errors?.['minlength'] && registroForm.get('contraseña')?.touched">
+						Mínimo 6 caracteres.
+					  </div>
+					  
+
+					<button [disabled]="registroForm.invalid">Registrarse</button>
+				</form>
+			</div>
+<!-- INGRESO -->
+			<div class="login">
+				<form [formGroup]="ingresoForm" (ngSubmit)="ingreso()">
+
+					<label for="chk" aria-hidden="true">Login</label>
+					
+					<input type="name" formControlName="usuario" placeholder="Usuario"/>
+					<input type="password" formControlName="contraseña" placeholder="Contraseña"/>
+					<button [disabled]="ingresoForm.invalid">Iniciar sesión</button>
+				</form>
+			</div>
+	</div>
+</body>
