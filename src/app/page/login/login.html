@@ -1,17 +1,13 @@
-<head>
-	<title>Slide Navbar</title>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
-</head>
 <body>
 	<div class="main">  	
 		<input type="checkbox" id="chk" aria-hidden="true">
-  <!-- REGISTRO -->
+	<!-- REGISTRO -->
 			<div class="signup">
-				<form [formGroup]="registroForm" (ngSubmit)="ingreso()">
+				<form [formGroup]="registroForm" (ngSubmit)="registro()">
 					
 					<label for="chk" aria-hidden="true">Registro</label>
-					<input type="text" formControlName="usuario" placeholder="Nombre de usuario" />
-					<div *ngIf="registroForm.get('usuario')?.invalid && registroForm.get('usuario')?.touched">
+					<input type="text" formControlName="nombre" placeholder="Nombre de usuario" />
+					<div *ngIf="registroForm.get('nombre')?.invalid && registroForm.get('nombre')?.touched">
 						Nombre de usuario requerido.
 					</div>
 
@@ -26,19 +22,39 @@
 					  </div>
 					  
 
-					<button [disabled]="registroForm.invalid">Registrarse</button>
+					<button class="button-special" [disabled]="registroForm.invalid">Registrarse</button>
 				</form>
 			</div>
-<!-- INGRESO -->
-			<div class="login">
+
+	<!-- INGRESO -->
+
+			<div class="login" >
 				<form [formGroup]="ingresoForm" (ngSubmit)="ingreso()">
 
 					<label for="chk" aria-hidden="true">Login</label>
 					
-					<input type="name" formControlName="usuario" placeholder="Usuario"/>
+					<input type="email" formControlName="email" placeholder="Ingres su email"/>
 					<input type="password" formControlName="contraseña" placeholder="Contraseña"/>
-					<button [disabled]="ingresoForm.invalid">Iniciar sesión</button>
+					
+					<button class="button-special" text="Iniciar Sesión" [disabled]="ingresoForm.invalid" (onClick)="ingreso()">Iniciar Sesión</button>
 				</form>
+				<div class="d-flex justify-content-center gap-3 mt-3">
+					<button class="ui-btn" (click)="botonTesteo1()">
+						<span>
+							🤫
+						</span>
+						</button >
+						<button class="ui-btn" (click)="botonTesteoAnim()">
+						<span>
+							Anim
+						</span>
+						</button>
+						<button class="ui-btn" (click)="botonTesteo2()">
+						<span>
+							🗣 
+						</span>
+						</button>
+				</div>
 			</div>
-	</div>
+		</div>
 </body>

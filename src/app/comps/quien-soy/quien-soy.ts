@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-quien-soy',
@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './quien-soy.css'
 })
 export class QuienSoy {
+@ViewChild('wrapper') wrapper!: ElementRef<HTMLDivElement>;
 
+  toggleSidebar() {
+    this.wrapper.nativeElement.classList.toggle('toggled');
+  }
 }

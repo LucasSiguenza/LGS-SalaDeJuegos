@@ -1,1 +1,22 @@
-<p>quien-soy works!</p>
+<div #wrapper class="d-flex toggled" id="wrapper">
+  <div id="sidebar-wrapper" class="border-end bg-light">
+    <!-- sidebar content -->
+  </div>
+
+  <div id="page-content-wrapper" class="w-100">
+    <nav class="navbar navbar-light bg-white border-bottom px-3">
+      <button class="btn btn-outline-primary" (click)="toggleSidebar()">
+        <i class="bi bi-list"></i> Menú
+      </button>
+    </nav>
+    <div class="container py-4 text-center">
+  <!-- Page Content -->
+  <div id="page-content-wrapper" class="w-100">
+    <div class="container py-4 text-center">
+      <h1 class="mb-4">Qsy, estoy re loco</h1>
+      <div class="card shadow-sm p-4 mt-4">
+        <p class="mb-0">El contenido va acá</p>
+      </div>
+    </div>
+  </div>
+</div>

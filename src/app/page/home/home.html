@@ -1,1 +1,35 @@
-<p>home works!</p>
+<app-header></app-header>
+<div class="container-fluid vh-100 d-flex flex-column">
+  <table class="table table-bordered text-center flex-grow-1 m-0">
+    <thead class="table-dark">
+  <tr>
+    <th>
+      <button (click)="cargarJuego('juego1')">Juego Uno</button>
+    </th>
+    <th>
+      <button (click)="cargarJuego('juego2')">Juego Dos</button>
+    </th>
+    <th>
+      <button (click)="cargarJuego('juego3')">Juego Tres</button>
+    </th>
+  </tr>
+</thead>
+    <tbody>
+      <tr>
+        <!-- Columna que ocupa el 100% -->
+        <td colspan="3" class="align-middle">
+          @if (juegoActivo === 'juego1') {
+            <app-juego-uno></app-juego-uno>
+          }
+          @if (juegoActivo === 'juego2') {
+            <app-juego-dos></app-juego-dos>
+          }
+          @if (juegoActivo === 'juego3') {
+            <app-juego-tres></app-juego-tres>
+          }
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<app-footer></app-footer>

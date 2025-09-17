@@ -1,0 +1,13 @@
+/* Asegura que el dropdown de Usuario se superponga bien */
+.dropdown-menu {
+  position: absolute;
+  bottom: 100%; /* despliega hacia arriba porque navbar está abajo */
+  left: 0;
+  margin-bottom: 0.5rem;
+}
+.cdk-overlay-container {
+  z-index: 2000; /* más alto que tu navbar fixed-bottom */
+}
+.lsg-snackbar {
+  z-index: 2000 !important;
+}

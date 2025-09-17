@@ -1,0 +1,23 @@
+/* Wrapper para manejar el toggle */
+#wrapper {
+  overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+  width: 250px;
+  min-height: 100vh;
+  transition: margin 0.25s ease-out;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: -250px; 
+}
+
+#page-content-wrapper {
+  flex: 1;
+}
+
+/* Estilo extra para centrar contenido */
+.container {
+  max-width: 800px;
+}
