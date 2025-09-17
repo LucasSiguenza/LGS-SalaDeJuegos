@@ -1,5 +1,5 @@
 export const environment = {
-  production: false,
+  production: true,
   firebase: {
     apiKey: 'AIzaSyCJpEQ6DbmjXy8KRP6XoHrG_l88SSD3v1c',
     authDomain: 'mjor-sala-de-juegos.firebaseapp.com',

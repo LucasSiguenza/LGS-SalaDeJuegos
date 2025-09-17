@@ -6,6 +6,7 @@ import { NgIf } from "@angular/common";
 import { Utils } from '../../services/utils';
 import { Firebase } from '../../services/firebase';
 import { Usuario } from '../../models/usuario.model';
+import { serverTimestamp } from 'firebase/firestore';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,7 @@ export class Login {
    registroForm = new FormGroup({
     nombre: new FormControl('', Validators.required),
     contraseña:  new FormControl('', [Validators.required, Validators.minLength(6)]),
-    email: new FormControl('', Validators.email)
+    email: new FormControl('', Validators.email),
   })
 
   utilsSvc = inject(Utils);
@@ -57,8 +58,11 @@ async ingreso(){
 async registro(){
   try{
     this.utilsSvc.mostrarLoading();
-
-    const res = await this.firebaseSvc.registro(this.registroForm.value as Usuario);
+    const nuevoUsuario = { 
+      ...this.registroForm.value,
+      fechaCreacion: serverTimestamp()  
+    };
+    const res = await this.firebaseSvc.registro(nuevoUsuario as Usuario);
     console.log("¡Registro exitante🥵: ", res);
 
     this.utilsSvc.mostrarToast('¡La pusiste, te registraste, sos un capo!🎉', 'success');
